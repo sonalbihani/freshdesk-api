@@ -13,7 +13,7 @@ class Tickets(Entity, Base):
     source = Column(Integer)
     due_by = Column(DateTime)
     category = Column(Integer)
-    def __init__(self, subject, description,category,requester_id,responder_id,status=2,source=2):
+    def __init__(self, subject, description,category,requester_id,responder_id=None,status=2,source=2):
         Entity.__init__(self)
         self.subject = subject
         self.description = description
@@ -31,7 +31,7 @@ class TicketSchema(Schema):
     status = fields.Int()
     source = fields.Int()
     due_by = fields.DateTime()
-    responder_id = fields.Int()
+    responder_id = fields.Int(allow_none=True,default=None)
     requester_id = fields.Int()
     category = fields.Int()
     created_at = fields.DateTime()
