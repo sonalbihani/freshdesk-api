@@ -1,11 +1,10 @@
+
 from flask_cors import CORS
 from flask import Flask, jsonify, request
 from sqlalchemy import text
 from os import environ
 from .entities.entity import Session,Base,engine
 from .entities.models import Tickets, TicketSchema, Contacts, ContactSchema, User, UserSchema
-# from .entity import Session, engine, Base
-# from .models import Tickets, TicketSchema, Contacts, ContactSchema, User, UserSchema
 from passlib.hash import pbkdf2_sha256
 from datetime import datetime, timedelta
 from flask_jwt_extended import JWTManager,jwt_required, create_access_token
